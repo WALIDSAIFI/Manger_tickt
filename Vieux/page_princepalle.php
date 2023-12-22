@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -18,9 +17,7 @@ if (!isset($_SESSION['user_id'])) {
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-        <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
     </head>
     <body class="bg-blue-900">
         <?php require_once("nav_bar.php"); ?>
@@ -50,20 +47,20 @@ if (!isset($_SESSION['user_id'])) {
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-
-                    <script>
-                        $(document).ready(function () {
-                            $('#ticketTable').DataTable({
-                                "searching": true // Enable search bar
-                            });
-                        });
-                    </script>
-
                 <?php else: ?>
                     <p class="text-gray-700">User not found or has no tickets.</p>
                 <?php endif; ?>
             </div>
         </div>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+        <script src="jquery.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#ticketTable').DataTable({
+                    "searching": true // Enable search bar
+                });
+            });
+        </script>
     </body>
     </html>
 <?php } ?>
